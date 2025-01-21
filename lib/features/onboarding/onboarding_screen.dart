@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:quick_bites/core/constants/colors.dart';
 import 'package:quick_bites/core/widgets/onboarding_card.dart';
+import 'package:quick_bites/features/auth/screens/sign_in_screen.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:quick_bites/features/onboarding/controller/onboarding_controller.dart';
 
@@ -40,7 +41,7 @@ class OnboardingScreen extends StatelessWidget {
         description:
             "Get real-time updates on your order status and estimated delivery time.",
         pageController: _pageController,
-        onNext: () => Get.offNamed('/login'),
+        onNext: () => Get.to(SignInScreen()),
         onSkip: () => _onboardingController.skipToLastPage(_pageController),
         isLastPage: true,
       ),
