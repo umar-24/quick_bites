@@ -20,7 +20,7 @@ class MyButton extends StatelessWidget {
       child: Container(
         height: 60,
         decoration: BoxDecoration(
-            color: color, borderRadius: BorderRadius.circular(50)),
+            color: color, borderRadius: BorderRadius.circular(20)),
         child: Center(
             child: loading
                 ? CircularProgressIndicator(

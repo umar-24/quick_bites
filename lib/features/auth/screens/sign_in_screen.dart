@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_core/get_core.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:quick_bites/core/constants/colors.dart';
+import 'package:quick_bites/core/constants/images.dart';
+import 'package:quick_bites/core/widgets/circular_buttons.dart';
 import 'package:quick_bites/core/widgets/heading_text.dart';
 import 'package:quick_bites/core/widgets/my_button.dart';
 import 'package:quick_bites/core/widgets/my_divider.dart';
 import 'package:quick_bites/core/widgets/my_textfeild.dart';
 import 'package:quick_bites/core/widgets/subtitle_text.dart';
+import 'package:quick_bites/features/auth/screens/sign_up_screens.dart';
+import 'package:quick_bites/features/onboarding/onboarding_screen.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
@@ -15,14 +21,18 @@ class SignInScreen extends StatefulWidget {
 }
 
 class _SignInScreenState extends State<SignInScreen> {
+
+  // =====================FORM CONTROLLERS==========================
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         body: SafeArea(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -36,14 +46,14 @@ class _SignInScreenState extends State<SignInScreen> {
                 fontSize: 20,
                 color: Colors.grey),
             const SizedBox(
-              height: 20,
+              height: 10,
             ),
             MyTextfeild(
                 titleText: "Email Address",
                 hintText: "Enter Email",
                 controller: emailController),
             const SizedBox(
-              height: 20,
+              height: 10,
             ),
             MyTextfeild(
               controller: passwordController,
@@ -65,11 +75,44 @@ class _SignInScreenState extends State<SignInScreen> {
             ),
             MyButton(title: "Sign In", onTap: () {}),
             const SizedBox(
-              height: 20,
+              height: 10,
             ),
             const MyDivider(
               middleText: "Or sign in with",
               textColor: Colors.grey,
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                CircularButtons(imagePath: googleLogo, onTap: (){},),
+                CircularButtons(imagePath: facebookLogo, onTap: (){},),
+                CircularButtons(imagePath: appleLogo, onTap: (){},),
+              ],
+            ),
+             const SizedBox(
+              height: 10,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const SubtitleText(
+                  text: "Don't have an account?",
+                  fontSize: 16,
+                  color: Colors.black,
+                ),
+                TextButton(
+                  onPressed: () {
+                    Get.to(SignUpScreens());
+                  },
+                  child: const Text(
+                    "Sign Up",
+                    style: TextStyle(color: orangeColor, fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ],
             ),
           ],
         ),
