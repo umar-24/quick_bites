@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:quick_bites/features/onboarding/onboarding_screen.dart';
 import 'package:quick_bites/splash/splash_screen.dart';
 
 void main() {
