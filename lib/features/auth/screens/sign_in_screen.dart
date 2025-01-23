@@ -11,7 +11,7 @@ import 'package:quick_bites/core/widgets/my_divider.dart';
 import 'package:quick_bites/core/widgets/my_textfeild.dart';
 import 'package:quick_bites/core/widgets/subtitle_text.dart';
 import 'package:quick_bites/features/auth/screens/sign_up_screens.dart';
-import 'package:quick_bites/features/onboarding/onboarding_screen.dart';
+import 'package:quick_bites/features/home/home_screen.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
@@ -61,6 +61,7 @@ class _SignInScreenState extends State<SignInScreen> {
               hintText: "Password",
               icon: const Icon(Iconsax.eye_slash),
             ),
+            //========`FORGOT PASSWORD` BUTTON================
             Row(
               children: [
               const Spacer(),
@@ -73,10 +74,14 @@ class _SignInScreenState extends State<SignInScreen> {
                 )
               ]
             ),
-            MyButton(title: "Sign In", onTap: () {}),
+            //========`SIGN IN` BUTTON================
+            MyButton(title: "Sign In", onTap: () {
+              Get.to(() => const HomeScreen());
+            }),
             const SizedBox(
               height: 10,
             ),
+            //========`OR SIGN IN WITH` TEXT================
             const MyDivider(
               middleText: "Or sign in with",
               textColor: Colors.grey,
@@ -84,6 +89,7 @@ class _SignInScreenState extends State<SignInScreen> {
             const SizedBox(
               height: 10,
             ),
+            //========`SOCIAL MEDIA BUTTONS`================
              Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -95,6 +101,7 @@ class _SignInScreenState extends State<SignInScreen> {
              const SizedBox(
               height: 10,
             ),
+            //========`DON'T HAVE AN ACCOUNT?` TEXT================
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -105,7 +112,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 ),
                 TextButton(
                   onPressed: () {
-                    Get.to(SignUpScreens());
+                    Get.to(const SignUpScreens());
                   },
                   child: const Text(
                     "Sign Up",
