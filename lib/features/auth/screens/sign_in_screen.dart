@@ -4,12 +4,14 @@ import 'package:get/get_navigation/get_navigation.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:quick_bites/core/constants/colors.dart';
 import 'package:quick_bites/core/constants/images.dart';
+import 'package:quick_bites/core/widgets/botton_navigation_bar.dart';
 import 'package:quick_bites/core/widgets/circular_buttons.dart';
 import 'package:quick_bites/core/widgets/heading_text.dart';
 import 'package:quick_bites/core/widgets/my_button.dart';
 import 'package:quick_bites/core/widgets/my_divider.dart';
 import 'package:quick_bites/core/widgets/my_textfeild.dart';
 import 'package:quick_bites/core/widgets/subtitle_text.dart';
+import 'package:quick_bites/features/auth/screens/forgot_password_screen.dart';
 import 'package:quick_bites/features/auth/screens/sign_up_screens.dart';
 import 'package:quick_bites/features/home/home_screen.dart';
 
@@ -66,7 +68,9 @@ class _SignInScreenState extends State<SignInScreen> {
               children: [
               const Spacer(),
               TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.to(() => const forgetpassward());
+                  },
                   child: const Text(
                     "Forgot Password?",
                     style: TextStyle(color: orangeColor),
@@ -76,7 +80,7 @@ class _SignInScreenState extends State<SignInScreen> {
             ),
             //========`SIGN IN` BUTTON================
             MyButton(title: "Sign In", onTap: () {
-              Get.to(() => const HomeScreen());
+              Get.to(() => const BottonNavBar());
             }),
             const SizedBox(
               height: 10,
