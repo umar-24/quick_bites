@@ -13,7 +13,6 @@ import 'package:quick_bites/core/widgets/my_textfeild.dart';
 import 'package:quick_bites/core/widgets/subtitle_text.dart';
 import 'package:quick_bites/features/auth/screens/forgot_password_screen.dart';
 import 'package:quick_bites/features/auth/screens/sign_up_screens.dart';
-import 'package:quick_bites/features/home/home_screen.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
