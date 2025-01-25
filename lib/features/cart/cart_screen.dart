@@ -49,6 +49,7 @@ class _CartScreenState extends State<CartScreen> {
             ),
             const SizedBox(height: 10,),
             Text("Home", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+            
           ],
         ),
       ),
