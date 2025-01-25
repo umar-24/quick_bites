@@ -31,7 +31,6 @@ class ProductCardVertical extends StatelessWidget {
     return GestureDetector(
       onTap: () => Get.to(ProductViewScreen()),
       child: Card(
-
         color: Colors.white,
         elevation: 5,
         shape: RoundedRectangleBorder(
