@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_iconly/flutter_iconly.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:quick_bites/core/constants/colors.dart';
+import 'package:quick_bites/core/constants/images.dart';
+import 'package:quick_bites/core/widgets/product_card_horizontal.dart';
 
 class DraggableScrollableWidget extends StatelessWidget {
   final ScrollController scrollController;
@@ -43,7 +45,7 @@ class DraggableScrollableWidget extends StatelessWidget {
                   ],
                 ),
               ),
-              Text(
+              const Text(
                 "Burger with meat 🍔",
                 style: TextStyle(
                   fontSize: 28,
@@ -51,7 +53,7 @@ class DraggableScrollableWidget extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 10),
-              Text(
+              const Text(
                 "PKR 750",
                 style: TextStyle(
                   fontSize: 22,
@@ -64,15 +66,71 @@ class DraggableScrollableWidget extends StatelessWidget {
               height: 70,
               width: double.infinity,
               decoration: BoxDecoration(
-                color: Colors.black12,
+                color: Colors.orange[50],
                 borderRadius: BorderRadius.circular(15),
+              ),
+              child: const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        Icon(
+                          Iconsax.clock,
+                          color: orangeColor,
+                        ),
+                        SizedBox(width: 10),
+                        Text(
+                          "30-40 min",
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Icon(
+                          Iconsax.location,
+                          color: orangeColor,
+                        ),
+                        SizedBox(width: 10),
+                        Text(
+                          "2.5 km",
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Icon(
+                          Iconsax.star1,
+                          color: orangeColor,
+                        ),
+                         SizedBox(width: 10),
+                        Text(
+                          "4.5",
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
              ),
               const Padding(
                 padding: EdgeInsets.symmetric(vertical: 15),
                 child: Divider(height: 4),
               ),
-              Text(
+              const Text(
                 "Description",
                 style: TextStyle(
                   fontSize: 20,
@@ -80,7 +138,7 @@ class DraggableScrollableWidget extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 10),
-              Text(
+              const Text(
                 'Your recipe has been uploaded, you can see it on your profile. Your recipe has been uploaded, you can see it on your',
                 style: TextStyle(
                   fontSize: 16,
@@ -92,7 +150,10 @@ class DraggableScrollableWidget extends StatelessWidget {
                 child: Divider(height: 4),
               ),
               
-              
+              ProductCardHorizontal(imageUrl: pizza1, title: "Pizza", description: "large piizaa", price: 231, onAddToCart: (){}),
+              ProductCardHorizontal(imageUrl: sandwich2, title: "Pizza", description: "large piizaa", price: 231, onAddToCart: (){}),
+              ProductCardHorizontal(imageUrl: burger10, title: "Pizza", description: "large piizaa", price: 231, onAddToCart: (){}),
+              ProductCardHorizontal(imageUrl: sandwich5, title: "Pizza", description: "large piizaa", price: 231, onAddToCart: (){}),
             ],
           ),
         ),

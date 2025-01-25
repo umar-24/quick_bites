@@ -47,17 +47,21 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.of(context);
+    final screenHeight = mediaQuery.size.height;
+    final screenWidth = mediaQuery.size.width;
+
     return Scaffold(
       body: Column(
         children: [
           MainHeader(),
-          SizedBox(height: 20),
+          SizedBox(height: screenHeight * 0.02),
           Expanded(
             child: Column(
               children: [
                 const MainHeading(),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.05),
                   child: SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
@@ -90,7 +94,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ),
-                // const SizedBox(height: 20),
                 Expanded(
                   child: PageView(
                     controller: _pageController,

@@ -24,59 +24,63 @@ class ProductCardVertical extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Get screen width and height using MediaQuery
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return GestureDetector(
       onTap: () => Get.to(ProductViewScreen()),
       child: Card(
         color: Colors.white,
         elevation: 5,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(screenWidth * 0.03),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: EdgeInsets.all(screenWidth * 0.02),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               ClipRRect(
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: BorderRadius.circular(screenWidth * 0.03),
                 child: Stack(
-                  children:[ 
+                  children: [
                     Image.asset(
-                    imagePath,
-                    height: 150,
-                    width: double.infinity,
-                    fit: BoxFit.cover,
-                  ),
-                  Positioned(
-                    top: 8,
-                    right: 8,
-                    child: Container(
-                      height: 40,
-                      width: 40, 
-                      padding: const EdgeInsets.all(4),
-                      decoration: const BoxDecoration(
-                        color: Colors.white,
-                        shape: BoxShape.circle,
-                      ),
-                      child: const Icon(
-                        Iconsax.heart,
-                        size: 20,
-                        color: Colors.red,
+                      imagePath,
+                      height: screenHeight * 0.15,
+                      width: double.infinity,
+                      fit: BoxFit.cover,
+                    ),
+                    Positioned(
+                      top: screenHeight * 0.01,
+                      right: screenWidth * 0.02,
+                      child: Container(
+                        height: screenWidth * 0.1,
+                        width: screenWidth * 0.1,
+                        padding: EdgeInsets.all(screenWidth * 0.01),
+                        decoration: const BoxDecoration(
+                          color: Colors.white,
+                          shape: BoxShape.circle,
+                        ),
+                        child: const Icon(
+                          Iconsax.heart,
+                          size: 20,
+                          color: Colors.red,
+                        ),
                       ),
                     ),
-                  ),
                   ],
                 ),
               ),
-              const SizedBox(height: 8),
+              SizedBox(height: screenHeight * 0.01),
               Text(
                 title,
-                style: const TextStyle(
-                  fontSize: 16,
+                style: TextStyle(
+                  fontSize: screenWidth * 0.04,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              const SizedBox(height: 4),
+              SizedBox(height: screenHeight * 0.005),
               Row(
                 children: [
                   RatingBar.builder(
@@ -85,8 +89,8 @@ class ProductCardVertical extends StatelessWidget {
                     direction: Axis.horizontal,
                     allowHalfRating: true,
                     itemCount: 5,
-                    itemSize: 16,
-                    itemPadding: const EdgeInsets.symmetric(horizontal: 1.0),
+                    itemSize: screenWidth * 0.04,
+                    itemPadding: EdgeInsets.symmetric(horizontal: screenWidth * 0.002),
                     itemBuilder: (context, _) => const Icon(
                       Icons.star,
                       color: orangeColor,
@@ -103,8 +107,8 @@ class ProductCardVertical extends StatelessWidget {
                       ),
                       Text(
                         distance,
-                        style: const TextStyle(
-                          fontSize: 12,
+                        style: TextStyle(
+                          fontSize: screenWidth * 0.04,
                           color: Colors.grey,
                         ),
                       ),
@@ -112,11 +116,11 @@ class ProductCardVertical extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: 8),
+              SizedBox(height: screenHeight * 0.01),
               Text(
                 price,
-                style: const TextStyle(
-                  fontSize: 20,
+                style: TextStyle(
+                  fontSize: screenWidth * 0.05,
                   color: orangeColor,
                   fontWeight: FontWeight.bold,
                 ),
