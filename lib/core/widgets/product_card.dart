@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:quick_bites/core/constants/colors.dart';
+import 'package:quick_bites/core/widgets/main_headings.dart';
 
 class ProductCard extends StatefulWidget {
   final String imageUrl;
@@ -41,122 +42,71 @@ class _ProductCardState extends State<ProductCard> {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
-      ),
-      elevation: 4,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Checkbox
             Checkbox(
-              value: isSelected,
-              onChanged: (value) {
-                setState(() {
-                  isSelected = value!;
-                });
+              activeColor: orangeColor,
+              value: isSelected, onChanged: (bool? value) {
+              setState(() {
+                isSelected = value ?? false;
                 if (widget.onCheckboxChanged != null) {
-                  widget.onCheckboxChanged!(value);
+                  widget.onCheckboxChanged!(isSelected);
                 }
-              },
-            ),
-            const SizedBox(width: 8),
-            // Product Image
+              });
+            }),
             ClipRRect(
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(10),
               child: Image.asset(
                 widget.imageUrl,
-                width: 80,
-                height: 80,
+                height: 100,
+                width: 100,
                 fit: BoxFit.cover,
               ),
             ),
-            const SizedBox(width: 12),
-            // Expanded or Flexible to give constraints
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  // Product Title
-                  Text(
-                    widget.title,
-                    style: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  // const SizedBox(height: 4),
-                  // Product Description
-                  Text(
-                    widget.description,
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.grey[600],
-                    ),
-                  ),
-                  // const SizedBox(height: 8),
-                  // Product Price
-                  Text(
-                    '\$${widget.price.toStringAsFixed(2)}',
-                    style: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: orangeColor
-                    ),
-                  ),
-                  // const SizedBox(height: 8),
-                  // Increment/Decrement Buttons
-                  Row(
-                    children: [
-                      IconButton(
-                        onPressed: () {
-                          if (quantity > 1) {
-                            setState(() {
-                              quantity--;
-                            });
-                            if (widget.onQuantityChanged != null) {
-                              widget.onQuantityChanged!(quantity);
-                            }
-                          }
-                        },
-                        icon: const Icon(Icons.remove),
-                        // color: Colors.red,
-                      ),
-                      Text(
-                        quantity.toString(),
-                        style: const TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      IconButton(
-                        onPressed: () {
-                          setState(() {
-                            quantity++;
-                          });
+            const SizedBox(width: 10),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // ========= Title =================
+                Text("Burger", style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                // ========= Description =================
+                Text("This is special", style: const TextStyle(fontSize: 14, color: Colors.grey)),
+                // ========= Price =================
+                Text("PKR 750", style: const TextStyle(fontSize: 16, color: orangeColor, fontWeight: FontWeight.bold)),
+                // ========= Quantity =================
+                Row(
+                  children: [
+                    IconButton(
+                      onPressed: () {
+                        setState(() {
+                          quantity--;
                           if (widget.onQuantityChanged != null) {
                             widget.onQuantityChanged!(quantity);
                           }
-                        },
-                        icon: const Icon(Icons.add),
-                        // color: Colors.green,
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-            // Delete Button
-            IconButton(
-              onPressed: widget.onDelete,
-              icon:  Icon(
-                Iconsax.bitcoin_card,
-                color: Colors.red,
-              ),
-            ),
+                        });
+                      },
+                      icon: const Icon(Iconsax.minus, size: 20),
+                    ),
+                    Text(quantity.toString(), style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                    IconButton(
+                      onPressed: () {
+                        setState(() {
+                          quantity++;
+                          if (widget.onQuantityChanged != null) {
+                            widget.onQuantityChanged!(quantity);
+                          }
+                        });
+                      },
+                      icon: const Icon(Iconsax.add, size: 20),
+                    ),
+                    const SizedBox(width: 40,),
+                    IconButton(onPressed: (){}, icon: Icon(Icons.delete, color: Colors.red,))
+                  ],
+                ),
+              ],
+            )
           ],
         ),
       ),

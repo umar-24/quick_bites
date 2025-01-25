@@ -97,11 +97,20 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   trailing: Icon(Icons.arrow_forward_ios),
                   onTap: (){},
                 ),
-              OutlinedButton(onPressed: (){}, child: Row(
+                const SizedBox(height: 10),
+              OutlinedButton(
+                style: OutlinedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  side: BorderSide(color: Colors.red),
+                ),
+                onPressed: (){}, child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-
-                  Icon(Iconsax.logout,color: Colors.red,),Text("Sign out",style: TextStyle(color: Colors.red),)
+                  Icon(Iconsax.logout,color: Colors.red,),
+                  SizedBox(width: 10),
+                  Text("Sign out",style: TextStyle(color: Colors.red),)
                 ],
               ),
               )
