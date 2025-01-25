@@ -21,8 +21,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
     child: Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        SizedBox(height: 50),
-        Center(child: HeadingText(text: 'Profile Setting', fontSize: 30, fontWeight: FontWeight.bold)),
+
+        Center(child: HeadingText(text: 'Profile Setting', fontSize: 25, fontWeight: FontWeight.bold)),
         SizedBox(height: 25),
         CircleAvatar(
           radius: 70,
