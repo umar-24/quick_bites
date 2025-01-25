@@ -11,8 +11,8 @@ import 'package:quick_bites/core/widgets/my_button.dart';
 import 'package:quick_bites/core/widgets/my_divider.dart';
 import 'package:quick_bites/core/widgets/my_textfeild.dart';
 import 'package:quick_bites/core/widgets/subtitle_text.dart';
+import 'package:quick_bites/features/auth/screens/forgot_password_screen.dart';
 import 'package:quick_bites/features/auth/screens/sign_up_screens.dart';
-import 'package:quick_bites/features/home/home_screen.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
@@ -72,7 +72,9 @@ class _SignInScreenState extends State<SignInScreen> {
               children: [
               const Spacer(),
               TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.to(forgetpassward());
+                  },
                   child: const Text(
                     "Forgot Password?",
                     style: TextStyle(color: orangeColor),
@@ -99,9 +101,9 @@ class _SignInScreenState extends State<SignInScreen> {
              Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                CircularButtons(imagePath: googleLogo, onTap: (){},),
-                CircularButtons(imagePath: facebookLogo, onTap: (){},),
-                CircularButtons(imagePath: appleLogo, onTap: (){},),
+                CircularButtons(icon: Image.asset(googleLogo,height: 30,), onTap: (){},),
+                CircularButtons(icon: Image.asset(facebookLogo,height: 30,), onTap: (){},),
+                CircularButtons(icon: Image.asset(appleLogo, height: 30,), onTap: (){},),
               ],
             ),
              const SizedBox(

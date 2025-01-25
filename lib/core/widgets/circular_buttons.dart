@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
 class CircularButtons extends StatelessWidget {
-  final String imagePath;
+  final Widget? icon;
   final void Function()? onTap;
-  const CircularButtons({super.key, required this.imagePath, this.onTap});
+  final double? height, width;
+  const CircularButtons({super.key, required this.icon, this.onTap, this.height = 60, this.width = 60});
 
   @override
   Widget build(BuildContext context) {
@@ -11,14 +12,14 @@ class CircularButtons extends StatelessWidget {
       onTap: onTap,
       child: Container(
         margin: EdgeInsets.only(right: 10),
-        height: 60,
-        width: 60,
+        height: height,
+        width: width,
         decoration: BoxDecoration(
           color: Colors.white,
           shape: BoxShape.circle,
           border: Border.all(color: Colors.grey),
         ),
-        child: Center(child: Image.asset(imagePath, height: 30,))
+        child: Center(child: icon)
       ),
     );
   }

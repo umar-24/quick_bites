@@ -126,9 +126,9 @@ class _SignUpScreensState extends State<SignUpScreens> {
              Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                CircularButtons(imagePath: googleLogo, onTap: (){},),
-                CircularButtons(imagePath: facebookLogo, onTap: (){},),
-                CircularButtons(imagePath: appleLogo, onTap: (){},),
+                 CircularButtons(icon: Image.asset(googleLogo, height: 30,), onTap: (){},),
+                CircularButtons(icon: Image.asset(facebookLogo,height: 30,), onTap: (){},),
+                CircularButtons(icon: Image.asset(appleLogo,height: 30,), onTap: (){},),
               ],
             ),
              const SizedBox(
