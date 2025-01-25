@@ -4,6 +4,7 @@ import 'package:get/get_navigation/get_navigation.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:quick_bites/core/constants/colors.dart';
 import 'package:quick_bites/core/constants/images.dart';
+import 'package:quick_bites/core/widgets/botton_navigation_bar.dart';
 import 'package:quick_bites/core/widgets/circular_buttons.dart';
 import 'package:quick_bites/core/widgets/heading_text.dart';
 import 'package:quick_bites/core/widgets/my_button.dart';
@@ -26,7 +27,7 @@ class _SignInScreenState extends State<SignInScreen> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
-
+  bool _isObscured = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,10 +57,15 @@ class _SignInScreenState extends State<SignInScreen> {
               height: 10,
             ),
             MyTextfeild(
+              obsecureText: _isObscured,
               controller: passwordController,
               titleText: "Password",
               hintText: "Password",
-              icon: const Icon(Iconsax.eye_slash),
+              icon: IconButton(onPressed: (){
+                setState(() {
+                  _isObscured = !_isObscured;
+                });
+              }, icon: Icon(_isObscured? Iconsax.eye_slash : Iconsax.eye)),
             ),
             //========`FORGOT PASSWORD` BUTTON================
             Row(
@@ -76,7 +82,7 @@ class _SignInScreenState extends State<SignInScreen> {
             ),
             //========`SIGN IN` BUTTON================
             MyButton(title: "Sign In", onTap: () {
-              Get.to(() => const HomeScreen());
+              Get.to(() => const BottonNavBar());
             }),
             const SizedBox(
               height: 10,

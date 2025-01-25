@@ -31,6 +31,7 @@ class ProductCardVertical extends StatelessWidget {
     return GestureDetector(
       onTap: () => Get.to(ProductViewScreen()),
       child: Card(
+
         color: Colors.white,
         elevation: 5,
         shape: RoundedRectangleBorder(
@@ -120,7 +121,7 @@ class ProductCardVertical extends StatelessWidget {
               Text(
                 price,
                 style: TextStyle(
-                  fontSize: screenWidth * 0.05,
+                  fontSize: screenWidth * 0.04,
                   color: orangeColor,
                   fontWeight: FontWeight.bold,
                 ),

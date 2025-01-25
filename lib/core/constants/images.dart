@@ -41,3 +41,5 @@ const String pizza2 = 'assets/images/pizza2.jpg';
 const String pizza3 = 'assets/images/pizza3.jpg';
 const String pizza4 = 'assets/images/pizza5.jpg';
 
+//Profile
+ const String profileImage = "assets/images/download (1).jpg";

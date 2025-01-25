@@ -27,6 +27,7 @@ class _SignUpScreensState extends State<SignUpScreens> {
   final TextEditingController passwordController = TextEditingController();
 
   bool isChecked = false;
+  bool _isObsecured = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,10 +64,14 @@ class _SignUpScreensState extends State<SignUpScreens> {
               height: 10,
             ),
             MyTextfeild(
+              obsecureText: _isObsecured,
               controller: passwordController,
               titleText: "Password",
               hintText: "Password",
-              icon: const Icon(Iconsax.eye_slash),
+              icon: IconButton(onPressed: (){setState(() {
+                _isObsecured =!_isObsecured;
+              });
+              }, icon :Icon(_isObsecured? Iconsax.eye_slash :Iconsax.eye))
             ),
             const SizedBox(
               height: 10,
