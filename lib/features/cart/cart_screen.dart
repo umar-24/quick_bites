@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:quick_bites/core/constants/colors.dart';
+import 'package:quick_bites/core/constants/images.dart';
 import 'package:quick_bites/core/widgets/circular_buttons.dart';
+import 'package:quick_bites/core/widgets/product_card.dart';
 import 'package:quick_bites/core/widgets/subtitle_text.dart';
 
 class CartScreen extends StatefulWidget {
@@ -49,7 +51,7 @@ class _CartScreenState extends State<CartScreen> {
             ),
             const SizedBox(height: 10,),
             Text("Home", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
-            
+            ProductCard(imageUrl: sandwich5, title: "SAndiwch", description: "this is specual ", price: 213)
           ],
         ),
       ),
