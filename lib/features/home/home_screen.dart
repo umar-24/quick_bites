@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:quick_bites/categories/burger_category.dart';
+import 'package:quick_bites/features/categories/burger_category.dart';
 import 'package:quick_bites/core/constants/images.dart';
 import 'package:quick_bites/core/widgets/categories_container.dart';
 import 'package:quick_bites/core/widgets/main_header.dart';
 import 'package:quick_bites/core/widgets/main_headings.dart';
+import 'package:quick_bites/features/home/products_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -46,17 +47,21 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.of(context);
+    final screenHeight = mediaQuery.size.height;
+    final screenWidth = mediaQuery.size.width;
+
     return Scaffold(
       body: Column(
         children: [
           MainHeader(),
-          SizedBox(height: 20),
+          SizedBox(height: screenHeight * 0.02),
           Expanded(
             child: Column(
               children: [
                 const MainHeading(),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.05),
                   child: SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
@@ -89,12 +94,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 20),
                 Expanded(
                   child: PageView(
                     controller: _pageController,
                     children: [
-                      Center(child: Text("Home Page - Random Products")),
+                      ProductsScreen(),
                       BurgerCategory(),
                       Center(child: Text("Sandwich Page")),
                       Center(child: Text("Juice Page")),

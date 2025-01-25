@@ -13,8 +13,6 @@ import 'package:quick_bites/core/widgets/subtitle_text.dart';
 import 'package:quick_bites/features/auth/screens/sign_up_screens.dart';
 import 'package:quick_bites/features/home/home_screen.dart';
 
-import 'forgot_password_screen.dart';
-
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
 
@@ -68,7 +66,7 @@ class _SignInScreenState extends State<SignInScreen> {
               children: [
               const Spacer(),
               TextButton(
-                  onPressed: () {Get.to(forgetpassward());},
+                  onPressed: () {},
                   child: const Text(
                     "Forgot Password?",
                     style: TextStyle(color: orangeColor),

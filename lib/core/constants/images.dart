@@ -26,3 +26,18 @@ const String burger7 = 'assets/images/burger7.jpg';
 const String burger8 = 'assets/images/burger8.jpg';
 const String burger9 = 'assets/images/burger9.jpg';
 const String burger10 = 'assets/images/burger10.jpg';
+
+//Sandwiches
+const String sandwich1 = 'assets/images/sandwich1.jpg';
+const String sandwich2 = 'assets/images/sandwich2.jpg';
+const String sandwich3 = 'assets/images/sandwich3.jpg';
+const String sandwich4 = 'assets/images/sandwich4.jpg';
+const String sandwich5 = 'assets/images/sandwich5.jpg';
+const String sandwich6 = 'assets/images/sandwich6.jpg';
+
+//Pizza
+const String pizza1 = 'assets/images/pizza1.jpg';
+const String pizza2 = 'assets/images/pizza2.jpg';
+const String pizza3 = 'assets/images/pizza3.jpg';
+const String pizza4 = 'assets/images/pizza5.jpg';
+
