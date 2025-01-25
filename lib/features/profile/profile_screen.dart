@@ -20,47 +20,93 @@ class _ProfileScreenState extends State<ProfileScreen> {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 25),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Center(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    HeadingText(
-                        text: 'Profile Setting',
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold),
-                    SizedBox(height: 25),
-                    CircleAvatar(
-                        radius: 70, backgroundImage: AssetImage(profileImage)),
-                    SizedBox(height: 15),
-                    Text(
-                      "Steve John",
-                      style:
-                          TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
-                    ),
-                    Text(
-                      "steveJohn@gmail.com",
-                      style: TextStyle(fontSize: 20, color: Colors.grey),
-                    ),
-                  ],
+          child: SingleChildScrollView(
+            child: Column(
+              
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Center(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      HeadingText(
+                          text: 'Profile Setting',
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold),
+                      SizedBox(height: 25),
+                      CircleAvatar(
+                          radius: 70, backgroundImage: AssetImage(profileImage)),
+                      SizedBox(height: 15),
+                      Text(
+                        "Steve John",
+                        style:
+                            TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
+                      ),
+                      Text(
+                        "steveJohn@gmail.com",
+                        style: TextStyle(fontSize: 20, color: Colors.grey),
+                      ),
+                    ],
+                  ),
                 ),
+                SizedBox(height: 30),
+                Divider(),
+                Text(
+                  "Profile",
+                  style: TextStyle(fontSize: 16, color: Colors.grey),
+                ),
+                const SizedBox(height: 10),
+                MyListTile(
+                  leading: Icon(Iconsax.user),
+                  title: "Personal Data",
+                  trailing: Icon(Icons.arrow_forward_ios),
+                  onTap: (){},
+                ),
+                MyListTile(
+                  leading: Icon(Iconsax.settings),
+                  title: "Setting",
+                  trailing: Icon(Icons.arrow_forward_ios),
+                  onTap: (){},
+                ),
+                MyListTile(
+                  leading: Icon(Iconsax.card),
+                  title: "Extra Card",
+                  trailing: Icon(Icons.arrow_forward_ios),
+                  onTap: (){},
+                ),
+                Text(
+                  "Support",
+                  style: TextStyle(fontSize: 16, color: Colors.grey),
+                ),
+            
+                MyListTile(
+                  leading: Icon(Iconsax.message_question),
+                  title: "Help Center",
+                  trailing: Icon(Icons.arrow_forward_ios),
+                  onTap: (){},
+                ),
+                MyListTile(
+                  leading: Icon(Iconsax.profile_delete),
+                  title: "Request Account Deletion",
+                  trailing: Icon(Icons.arrow_forward_ios),
+                  onTap: (){},
+                ),
+                MyListTile(
+                  leading: Icon(Iconsax.add),
+                  title: "Add another account",
+                  trailing: Icon(Icons.arrow_forward_ios),
+                  onTap: (){},
+                ),
+              OutlinedButton(onPressed: (){}, child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+
+                  Icon(Iconsax.logout,color: Colors.red,),Text("Sign out",style: TextStyle(color: Colors.red),)
+                ],
               ),
-              SizedBox(height: 30),
-              Divider(),
-              Text(
-                "Profile",
-                style: TextStyle(fontSize: 16, color: Colors.grey),
-              ),
-              const SizedBox(height: 10),
-              MyListTile(
-                leading: Icon(Iconsax.user),
-                title: "Personal Data",
-                trailing: Icon(Icons.arrow_forward_ios),
-                onTap: (){},
-              ),
-            ],
+              )
+              ],
+            ),
           ),
         ),
       ),
