@@ -7,8 +7,7 @@ import 'package:quick_bites/core/widgets/product_card_horizontal.dart';
 class DraggableScrollableWidget extends StatelessWidget {
   final ScrollController scrollController;
 
-  const DraggableScrollableWidget({Key? key, required this.scrollController})
-      : super(key: key);
+  const DraggableScrollableWidget({super.key, required this.scrollController});
 
   @override
   Widget build(BuildContext context) {
