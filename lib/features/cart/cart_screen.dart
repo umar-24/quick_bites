@@ -31,7 +31,10 @@ class _CartScreenState extends State<CartScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
               
-            ProductCard(imageUrl: sandwich5, title: "SAndiwch", description: "this is specual ", price: 213)
+            ProductCard(imageUrl: sandwich5, title: "SAndiwch", description: "this is specual ", price: 213),
+            ProductCard(imageUrl: sandwich3, title: "SAndiwch", description: "this is specual ", price: 213),
+            ProductCard(imageUrl: sandwich1, title: "SAndiwch", description: "this is specual ", price: 213),
+            ProductCard(imageUrl: sandwich4, title: "SAndiwch", description: "this is specual ", price: 213),
           ],
         ), 
       ),

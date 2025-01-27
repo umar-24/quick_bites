@@ -18,6 +18,9 @@ class _ProductViewScreenState extends State<ProductViewScreen> {
 
   @override
   Widget build(BuildContext context) {
+    // Add debug log
+    debugPrint('ProductViewScreen: build method called');
+
     return Scaffold(
       body: Stack(
         children: [

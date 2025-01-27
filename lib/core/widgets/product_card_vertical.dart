@@ -29,7 +29,11 @@ class ProductCardVertical extends StatelessWidget {
     final screenHeight = MediaQuery.of(context).size.height;
 
     return GestureDetector(
-      onTap: () => Get.to(ProductViewScreen()),
+      onTap: () {
+        // Add debug log
+        debugPrint('Navigating to ProductViewScreen');
+        Get.to(ProductViewScreen());
+      },
       child: Card(
         color: Colors.white,
         elevation: 5,

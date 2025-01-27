@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:quick_bites/core/constants/colors.dart';
-import 'package:quick_bites/core/widgets/main_headings.dart';
 
 class ProductCard extends StatefulWidget {
   final String imageUrl;
