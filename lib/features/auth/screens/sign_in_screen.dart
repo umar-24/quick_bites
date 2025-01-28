@@ -73,7 +73,7 @@ class _SignInScreenState extends State<SignInScreen> {
               const Spacer(),
               TextButton(
                   onPressed: () {
-                    Get.to(forgetpassward());
+                    Get.off(forgetpassward());
                   },
                   child: const Text(
                     "Forgot Password?",
@@ -84,7 +84,7 @@ class _SignInScreenState extends State<SignInScreen> {
             ),
             //========`SIGN IN` BUTTON================
             MyButton(title: "Sign In", onTap: () {
-              Get.to(() => const BottonNavBar());
+              Get.off(() => const BottonNavBar());
             }),
             const SizedBox(
               height: 10,
@@ -120,7 +120,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 ),
                 TextButton(
                   onPressed: () {
-                    Get.to(const SignUpScreens());
+                    Get.off(const SignUpScreens());
                   },
                   child: const Text(
                     "Sign Up",
