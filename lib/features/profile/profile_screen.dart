@@ -1,8 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:quick_bites/core/widgets/heading_text.dart';
 import 'package:quick_bites/core/widgets/my_list_tile.dart';
+import 'package:quick_bites/settings/settings_screen.dart';
 
 import '../../core/constants/images.dart';
 
@@ -66,7 +69,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   leading: Icon(Iconsax.settings),
                   title: "Setting",
                   trailing: Icon(Icons.arrow_forward_ios),
-                  onTap: (){},
+                  onTap: (){
+                    Get.to(SettingsScreen());
+                  },
                 ),
                 MyListTile(
                   leading: Icon(Iconsax.card),

@@ -14,7 +14,7 @@ class MyListTile extends StatelessWidget {
     return ListTile(
       onTap: onTap,
       leading: leading,
-      title: Text(title!),
+      title: Text(title!, style: TextStyle(fontSize: 18)),
       trailing: trailing,
     );
   }
