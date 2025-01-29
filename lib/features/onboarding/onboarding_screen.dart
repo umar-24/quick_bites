@@ -41,7 +41,7 @@ class OnboardingScreen extends StatelessWidget {
         description:
             "Get real-time updates on your order status and estimated delivery time.",
         pageController: _pageController,
-        onNext: () => Get.to(SignInScreen()),
+        onNext: () => Get.off(SignInScreen()),
         onSkip: () => _onboardingController.skipToLastPage(_pageController),
         isLastPage: true,
       ),
