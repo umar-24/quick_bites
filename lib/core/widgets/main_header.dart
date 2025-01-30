@@ -11,8 +11,6 @@ class MainHeader extends StatelessWidget {
     return Stack(
       children: [
         Image.asset(bannerImage1),
-        // Image.network(
-        //     "https://images.pexels.com/photos/1603901/pexels-photo-1603901.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"),
         Positioned(
           top: 45,
           left: 10,
