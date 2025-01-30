@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:quick_bites/core/constants/colors.dart';
-import 'package:quick_bites/features/home/product_view_screen.dart';
+import 'package:quick_bites/features/categories/product_view_screen.dart';
 
 class ProductCardVertical extends StatelessWidget {
   final String imagePath;
