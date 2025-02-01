@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       home: SplashScreen(),
       theme: ThemeData(
         // primarySwatch: Colors.orange,
-        // fontFamily: 'Poppins',
+        fontFamily: 'Poppins',
         scaffoldBackgroundColor: Colors.white,
       ),
     );

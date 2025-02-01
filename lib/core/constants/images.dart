@@ -43,3 +43,4 @@ const String pizza4 = 'assets/images/pizza5.jpg';
 
 //Profile
  const String profileImage = "assets/images/download (1).jpg";
+ const String quickBitesLogo = "assets/images/Orange And White Playful Food Logo.png";

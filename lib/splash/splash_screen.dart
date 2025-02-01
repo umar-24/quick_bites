@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:quick_bites/core/constants/images.dart';
 import 'package:quick_bites/features/onboarding/onboarding_screen.dart';
 import 'package:get/get.dart';
 
@@ -24,7 +25,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text('Splash Screen'),
+        child: Image.asset(quickBitesLogo),
       ),
     );
   }

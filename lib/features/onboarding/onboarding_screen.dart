@@ -14,6 +14,10 @@ class OnboardingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Getting screen width and height for responsive design
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     List<Widget> _onBoardingPages = [
       OnboardingCard(
         animation: animation1,
@@ -49,7 +53,7 @@ class OnboardingScreen extends StatelessWidget {
 
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 50),
+        padding: EdgeInsets.symmetric(vertical: screenHeight * 0.05), // Dynamic vertical padding
         child: Column(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.center,
@@ -64,13 +68,16 @@ class OnboardingScreen extends StatelessWidget {
                 children: _onBoardingPages,
               ),
             ),
-            SmoothPageIndicator(
-              controller: _pageController,
-              count: _onBoardingPages.length,
-              effect: const ExpandingDotsEffect(
-                dotWidth: 10,
-                dotHeight: 7,
-                activeDotColor: orangeColor,
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: screenHeight * 0.03), // Dynamic padding for the indicator
+              child: SmoothPageIndicator(
+                controller: _pageController,
+                count: _onBoardingPages.length,
+                effect: ExpandingDotsEffect(
+                  dotWidth: screenWidth * 0.03,  // Adjusting dot size based on screen width
+                  dotHeight: screenHeight * 0.02, // Adjusting dot height based on screen height
+                  activeDotColor: orangeColor,
+                ),
               ),
             ),
           ],

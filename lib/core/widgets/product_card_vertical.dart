@@ -86,7 +86,7 @@ class ProductCardVertical extends StatelessWidget {
                 ),
               ),
 
-              SizedBox(height: screenHeight * 0.005),
+              // SizedBox(height: screenHeight * 0.005),
 
               /// ✅ **Row for Rating and Distance**
               Row(
