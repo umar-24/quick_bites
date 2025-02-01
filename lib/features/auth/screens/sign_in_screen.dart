@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_core/get_core.dart';
 import 'package:get/get_navigation/get_navigation.dart';
@@ -27,7 +28,58 @@ class _SignInScreenState extends State<SignInScreen> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+
   bool _isObscured = true;
+  bool loading = false;
+
+  // =====================SIGN IN FUNCTION==========================
+
+  void signIn() {
+  setState(() {
+    loading = true;
+  });
+
+  _auth.signInWithEmailAndPassword(
+    email: emailController.text.toString(),
+    password: passwordController.text.toString(),
+  ).then((value) {
+    setState(() {
+      loading = false;
+    });
+    
+    // Show success snackbar
+    Get.snackbar(
+      "Success",
+      "Login successful",
+      backgroundColor: Colors.orangeAccent,
+      colorText: Colors.white,
+      snackPosition: SnackPosition.BOTTOM,
+    );
+
+    // Add delay before navigating to give time for snackbar to show
+    Future.delayed(Duration(seconds: 1), () {
+      Get.off(() => const BottonNavBar());
+    });
+  }).catchError((error) {
+    setState(() {
+      loading = false;
+    });
+
+    // Print the error for debugging purposes
+    print(error);
+
+    // Show error snackbar
+    Get.snackbar(
+      "Error",
+      error.toString(),
+      backgroundColor: Colors.red,
+      colorText: Colors.white,
+      snackPosition: SnackPosition.BOTTOM,
+    );
+  });
+}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -73,7 +125,7 @@ class _SignInScreenState extends State<SignInScreen> {
               const Spacer(),
               TextButton(
                   onPressed: () {
-                    Get.off(forgetpassward());
+                    Get.to(forgetpassward());
                   },
                   child: const Text(
                     "Forgot Password?",
@@ -84,8 +136,9 @@ class _SignInScreenState extends State<SignInScreen> {
             ),
             //========`SIGN IN` BUTTON================
             MyButton(title: "Sign In", onTap: () {
-              Get.off(() => const BottonNavBar());
-            }),
+              signIn();
+            },
+            loading: loading,),
             const SizedBox(
               height: 10,
             ),

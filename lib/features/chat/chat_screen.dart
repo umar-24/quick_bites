@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:quick_bites/core/constants/colors.dart';
 
 class DarkChatScreen extends StatefulWidget {
   const DarkChatScreen({Key? key}) : super(key: key);
@@ -72,7 +73,7 @@ class _DarkChatScreenState extends State<DarkChatScreen> {
           ),
           const CircleAvatar(
             radius: 16,
-            backgroundColor: Colors.blue,
+            backgroundColor: orangeColor,
             child: Text('👾'),
           ),
         ],
@@ -104,7 +105,7 @@ class _DarkChatScreenState extends State<DarkChatScreen> {
                       padding: const EdgeInsets.symmetric(vertical: 8),
                       decoration: BoxDecoration(
                         color: _selectedTab == tab
-                            ? Colors.blue
+                            ? orangeColor
                             : Colors.transparent,
                         borderRadius: BorderRadius.circular(16),
                       ),
@@ -149,17 +150,17 @@ class _DarkChatScreenState extends State<DarkChatScreen> {
             title: Text(
               chat['name'],
               style: const TextStyle(
-                color: Colors.white,
+                color: Colors.black,
                 fontWeight: FontWeight.bold,
               ),
             ),
             subtitle: Text(
               '${chat['message']} (${chat['category']})',
-              style: TextStyle(color: Colors.grey[400]),
+              style: TextStyle(color: Colors.grey.shade800),
             ),
             trailing: Text(
               chat['time'],
-              style: TextStyle(color: Colors.grey[400]),
+              style: TextStyle(color: Colors.grey.shade800),
             ),
             onTap: () => Navigator.pushNamed(context, '/chat-detail'),
           ),
