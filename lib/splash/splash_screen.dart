@@ -1,8 +1,10 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:quick_bites/core/constants/images.dart';
 import 'package:quick_bites/features/onboarding/onboarding_screen.dart';
 import 'package:get/get.dart';
+import 'package:quick_bites/features/services/auth_gate.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -17,14 +19,14 @@ class _SplashScreenState extends State<SplashScreen> {
     // TODO: implement initState
     super.initState();
     Timer(Duration(seconds: 2), (){
-      Get.off(() => OnboardingScreen());
+      Get.off(() => AuthGate());
     });
   }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text('Splash Screen'),
+        child: Image.asset(quickBitesLogo),
       ),
     );
   }

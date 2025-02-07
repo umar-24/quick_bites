@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:quick_bites/core/constants/colors.dart';
 import 'package:quick_bites/core/constants/images.dart';
+import 'package:quick_bites/core/widgets/menu_item_widget.dart';
 import 'package:quick_bites/core/widgets/product_card_horizontal.dart';
 
 class DraggableScrollableWidget extends StatelessWidget {
@@ -149,10 +150,10 @@ class DraggableScrollableWidget extends StatelessWidget {
                 child: Divider(height: 4),
               ),
               
-              ProductCardHorizontal(imageUrl: pizza1, title: "Pizza", description: "large piizaa", price: 231, onAddToCart: (){}),
-              ProductCardHorizontal(imageUrl: sandwich2, title: "Pizza", description: "large piizaa", price: 231, onAddToCart: (){}),
-              ProductCardHorizontal(imageUrl: burger10, title: "Pizza", description: "large piizaa", price: 231, onAddToCart: (){}),
-              ProductCardHorizontal(imageUrl: sandwich5, title: "Pizza", description: "large piizaa", price: 231, onAddToCart: (){}),
+             MenuItemWidget(title: "PIZZA", price: "213", imageUrl: pizza3, description: "jkadghsajkdhjkdhasjkdhasjdhaskjdhsjkdhjhajksh",),
+             MenuItemWidget(title: "SANDWICH", price: "213", imageUrl: sandwich5, description: "jkadghsajkdhjkdhasjkdhasjdhaskjdhsjkdhjhajksh",),
+             MenuItemWidget(title: "BURGER", price: "213", imageUrl: burger10, description: "jkadghsajkdhjkdhasjkdhasjdhaskjdhsjkdhjhajksh",),
+             MenuItemWidget(title: "JUICE", price: "213", imageUrl: sandwich3, description: "jkadghsajkdhjkdhasjkdhasjdhaskjdhsjkdhjhajksh",),
             ],
           ),
         ),

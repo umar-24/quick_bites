@@ -2,74 +2,94 @@ import 'package:flutter/material.dart';
 import 'package:quick_bites/core/constants/images.dart';
 
 class MainHeader extends StatelessWidget {
-  const MainHeader({
-    super.key,
-  });
+  const MainHeader({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+    final textScale = MediaQuery.of(context).textScaleFactor;
+
     return Stack(
       children: [
-        Image.asset(bannerImage1),
-        // Image.network(
-        //     "https://images.pexels.com/photos/1603901/pexels-photo-1603901.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"),
+        /// 🖼️ **Background Image**
+        SizedBox(
+          height: screenHeight * 0.35, // ✅ Image height is now responsive
+          width: double.infinity,
+          child: Image.asset(
+            bannerImage1,
+            fit: BoxFit.cover,
+          ),
+        ),
+
+        /// 📍 **Your Location Row**
         Positioned(
-          top: 45,
-          left: 10,
+          top: screenHeight * 0.06,
+          left: screenWidth * 0.03,
           child: Row(
             children: [
-              const Text(
+              Text(
                 "Your Location",
                 style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 25,
-                    fontWeight: FontWeight.bold),
+                  color: Colors.white,
+                  fontSize: screenWidth * 0.065 * textScale, // ✅ Responsive font
+                  fontWeight: FontWeight.bold,
+                ),
               ),
               IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.arrow_drop_down,
-                    color: Colors.white,
-                  ))
+                onPressed: () {},
+                icon: Icon(
+                  Icons.arrow_drop_down,
+                  color: Colors.white,
+                  size: screenWidth * 0.07, // ✅ Responsive icon size
+                ),
+              ),
             ],
           ),
         ),
-        const Positioned(
-          top: 100,
-          left: 10,
+
+        /// 🏠 **Delivering To**
+        Positioned(
+          top: screenHeight * 0.14,
+          left: screenWidth * 0.03,
           child: Row(
             children: [
               Icon(
                 Icons.location_on,
                 color: Colors.white,
+                size: screenWidth * 0.05, // ✅ Responsive icon size
               ),
+              SizedBox(width: screenWidth * 0.01), // ✅ Adjust spacing
               Text(
                 "Delivering to",
-                style: TextStyle(color: Colors.white, fontSize: 15),
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: screenWidth * 0.04 * textScale, // ✅ Responsive font
+                ),
               ),
               Text(
                 " 123, Random Street",
                 style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 15,
-                    fontWeight: FontWeight.bold),
+                  color: Colors.white,
+                  fontSize: screenWidth * 0.04 * textScale, // ✅ Responsive font
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ],
           ),
         ),
-        const Positioned(
-          top: 150,
-          left: 10,
-          child: Row(
-            children: [
-              Text(
-                "Provide the best\nfood for you",
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 40,
-                    fontWeight: FontWeight.bold),
-              ),
-            ],
+
+        /// 🍽️ **Headline Text**
+        Positioned(
+          top: screenHeight * 0.17,
+          left: screenWidth * 0.03,
+          child: Text(
+            "Provide the best\nfood for you",
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: screenWidth * 0.1 * textScale, // ✅ Responsive font
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
       ],

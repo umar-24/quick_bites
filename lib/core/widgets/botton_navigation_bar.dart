@@ -20,7 +20,7 @@ class _BottonNavBarState extends State<BottonNavBar> {
   // List of pages for navigation
   final List<Widget> _pages = [
     HomeScreen(),
-    ChatScreen(),
+    DarkChatScreen(),
     CartScreen(),
     ProfileScreen(),
 

@@ -1,10 +1,13 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:quick_bites/core/constants/colors.dart';
 import 'package:quick_bites/core/widgets/heading_text.dart';
 import 'package:quick_bites/core/widgets/my_list_tile.dart';
+import 'package:quick_bites/features/auth/screens/sign_in_screen.dart';
 import 'package:quick_bites/settings/settings_screen.dart';
 
 import '../../core/constants/images.dart';
@@ -17,6 +20,30 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+
+  void signOut() async {
+    await _auth.signOut().then((value) {
+      Get.snackbar(
+        "Success",
+        "Sign out successful",
+        backgroundColor: orangeColor,
+        colorText: Colors.white,
+        snackPosition: SnackPosition.BOTTOM,
+      );
+      Get.offAll(() => SignInScreen());
+    }).catchError((error) {
+      Get.snackbar(
+        "Error",
+        error.toString(),
+        backgroundColor: Colors.red,
+        colorText: Colors.white,
+        snackPosition: SnackPosition.BOTTOM,
+      );
+    });
+    
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -110,7 +137,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                   side: BorderSide(color: Colors.red),
                 ),
-                onPressed: (){}, child: Row(
+                onPressed: (){
+                  signOut();
+                }, child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Icon(Iconsax.logout,color: Colors.red,),

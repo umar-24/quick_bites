@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:get/get_core/get_core.dart';
-import 'package:get/get_navigation/get_navigation.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:quick_bites/core/constants/colors.dart';
-import 'package:quick_bites/features/home/product_view_screen.dart';
+import 'package:quick_bites/features/categories/product_view_screen.dart';
 
 class ProductCardVertical extends StatelessWidget {
   final String imagePath;
@@ -24,15 +22,14 @@ class ProductCardVertical extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Get screen width and height using MediaQuery
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
+    final textScale = MediaQuery.of(context).textScaleFactor;
 
     return GestureDetector(
       onTap: () {
-        // Add debug log
         debugPrint('Navigating to ProductViewScreen');
-        Get.to(ProductViewScreen());
+        Get.to(() => ProductViewScreen());
       },
       child: Card(
         color: Colors.white,
@@ -51,7 +48,7 @@ class ProductCardVertical extends StatelessWidget {
                   children: [
                     Image.asset(
                       imagePath,
-                      height: screenHeight * 0.15,
+                      height: screenHeight * 0.135,
                       width: double.infinity,
                       fit: BoxFit.cover,
                     ),
@@ -77,30 +74,29 @@ class ProductCardVertical extends StatelessWidget {
                 ),
               ),
               SizedBox(height: screenHeight * 0.01),
+
+              /// ✅ **Title (Text Overflow Fix)**
               Text(
                 title,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
                 style: TextStyle(
-                  fontSize: screenWidth * 0.04,
+                  fontSize: screenWidth * 0.035,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: screenHeight * 0.005),
+
+              // SizedBox(height: screenHeight * 0.005),
+
+              /// ✅ **Row for Rating and Distance**
               Row(
                 children: [
-                  RatingBar.builder(
-                    initialRating: rating,
-                    minRating: 1,
-                    direction: Axis.horizontal,
-                    allowHalfRating: true,
-                    itemCount: 5,
-                    itemSize: screenWidth * 0.04,
-                    itemPadding: EdgeInsets.symmetric(horizontal: screenWidth * 0.002),
-                    itemBuilder: (context, _) => const Icon(
-                      Icons.star,
-                      color: orangeColor,
-                    ),
-                    onRatingUpdate: (rating) {},
-                  ),
+                  /// ⭐ **Rating Stars (Auto-Adjust)**
+                  Icon(Iconsax.star, size: 16, color: orangeColor),
+                  Icon(Iconsax.star, size: 16, color: orangeColor),
+                  Icon(Iconsax.star, size: 16, color: orangeColor),
+
+                  /// 📍 **Distance**
                   const Spacer(),
                   Row(
                     children: [
@@ -109,10 +105,11 @@ class ProductCardVertical extends StatelessWidget {
                         size: 16,
                         color: orangeColor,
                       ),
+                      SizedBox(width: screenWidth * 0.01),
                       Text(
                         distance,
                         style: TextStyle(
-                          fontSize: screenWidth * 0.04,
+                          fontSize: screenWidth * 0.035 * textScale,
                           color: Colors.grey,
                         ),
                       ),
@@ -120,13 +117,19 @@ class ProductCardVertical extends StatelessWidget {
                   ),
                 ],
               ),
+
               SizedBox(height: screenHeight * 0.01),
-              Text(
-                price,
-                style: TextStyle(
-                  fontSize: screenWidth * 0.04,
-                  color: orangeColor,
-                  fontWeight: FontWeight.bold,
+
+              /// 💰 **Price (Now Responsive and Inside Card)**
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  price,
+                  style: TextStyle(
+                    fontSize: screenWidth * 0.05 * textScale, // **Scaling for Small Screens**
+                    color: orangeColor,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ],

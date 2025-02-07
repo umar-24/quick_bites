@@ -34,6 +34,9 @@ class _BurgerCategoryState extends State<BurgerCategory> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Burgers'),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: SingleChildScrollView(
@@ -53,7 +56,7 @@ class _BurgerCategoryState extends State<BurgerCategory> {
                 title: burgerNames[index],
                 rating: 4.0, // Default rating value
                 distance: '2.5 km',
-                price: '\$${(index + 1) * 5}',
+                price: '\PKR${(index + 1) * 500}',
               );
             },
           ),
