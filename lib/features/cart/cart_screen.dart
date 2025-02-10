@@ -5,13 +5,19 @@ import 'package:quick_bites/core/constants/colors.dart';
 // import '../../app/shared/fonts.dart';
 // import '../../shared/exports/export_boiler_plate.dart';
 
-class CartScreen extends StatelessWidget {
+class CartScreen extends StatefulWidget {
   const CartScreen({super.key});
 
+  @override
+  State<CartScreen> createState() => _CartScreenState();
+}
+
+class _CartScreenState extends State<CartScreen> {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
+    int quantity = 1;
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -166,13 +172,31 @@ class CartScreen extends StatelessWidget {
                     ),
                   ),
                 const SizedBox(height: 4),
-                Text(
-                  price,
-                  style: TextStyle(
-                    color: orangeColor,
-                    fontSize: screenWidth * 0.045,
-                    fontWeight: FontWeight.bold,
-                  ),
+                Row(
+                  children: [
+                    Text(
+                      price,
+                      style: TextStyle(
+                        color: orangeColor,
+                        fontSize: screenWidth * 0.045,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(width:  8,),
+                    Row(
+                      children: [
+                        IconButton(
+                          icon: Icon(Iconsax.minus),
+                          onPressed: () {},
+                        ),
+                        Text('1'),
+                        IconButton(
+                          icon: Icon(Iconsax.add),
+                          onPressed: () {},
+                        ),
+                      ],
+                    )
+                  ],
                 ),
               ],
             ),
