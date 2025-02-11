@@ -20,7 +20,6 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
   void signOut() async {
@@ -52,7 +51,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           padding: const EdgeInsets.symmetric(horizontal: 25),
           child: SingleChildScrollView(
             child: Column(
-              
+
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Center(
@@ -65,15 +64,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           fontWeight: FontWeight.bold),
                       SizedBox(height: 25),
                       CircleAvatar(
-                          radius: 70, backgroundImage: AssetImage(profileImage)),
+                          radius: 70,
+                          backgroundImage: AssetImage(profileImage)),
                       SizedBox(height: 15),
                       Text(
-                        "Steve John",
+                        "Ali",
                         style:
-                            TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
+                        TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
                       ),
                       Text(
-                        "steveJohn@gmail.com",
+                        "ali123@gmail.com",
                         style: TextStyle(fontSize: 20, color: Colors.grey),
                       ),
                     ],
@@ -90,13 +90,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   leading: Icon(Iconsax.user),
                   title: "Personal Data",
                   trailing: Icon(Icons.arrow_forward_ios),
-                  onTap: (){},
+                  onTap: () {},
                 ),
                 MyListTile(
                   leading: Icon(Iconsax.settings),
                   title: "Setting",
                   trailing: Icon(Icons.arrow_forward_ios),
-                  onTap: (){
+                  onTap: () {
                     Get.to(SettingsScreen());
                   },
                 ),
@@ -104,57 +104,149 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   leading: Icon(Iconsax.card),
                   title: "Extra Card",
                   trailing: Icon(Icons.arrow_forward_ios),
-                  onTap: (){},
+                  onTap: () {},
                 ),
                 Text(
                   "Support",
                   style: TextStyle(fontSize: 16, color: Colors.grey),
                 ),
-            
+
                 MyListTile(
                   leading: Icon(Iconsax.message_question),
                   title: "Help Center",
                   trailing: Icon(Icons.arrow_forward_ios),
-                  onTap: (){},
+                  onTap: () {},
                 ),
                 MyListTile(
                   leading: Icon(Iconsax.profile_delete),
                   title: "Request Account Deletion",
                   trailing: Icon(Icons.arrow_forward_ios),
-                  onTap: (){},
+                  onTap: () {},
                 ),
                 MyListTile(
                   leading: Icon(Iconsax.add),
                   title: "Add another account",
                   trailing: Icon(Icons.arrow_forward_ios),
-                  onTap: (){},
+                  onTap: () {},
                 ),
                 const SizedBox(height: 10),
-              OutlinedButton(
-                style: OutlinedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
+                OutlinedButton(
+                  style: OutlinedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    side: BorderSide(color: Colors.red),
                   ),
-                  side: BorderSide(color: Colors.red),
+                  onPressed: () {
+                    showLogoutDialog(context, signOut);
+
+
+                  }, child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+
+                    Icon(Iconsax.logout, color: Colors.red,),
+                    SizedBox(width: 10),
+                    Text("Sign out", style: TextStyle(color: Colors.red),)
+                  ],
                 ),
-                onPressed: (){
-                  signOut();
-                }, child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Iconsax.logout,color: Colors.red,),
-                  SizedBox(width: 10),
-                  Text("Sign out",style: TextStyle(color: Colors.red),)
-                ],
-              ),
-              )
+                )
               ],
             ),
           ),
         ),
       ),
     );
+  }}
+void showLogoutDialog(BuildContext context, VoidCallback signOut) {
+  showDialog(
+      context: context,
+      builder: (context) => Dialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+
+              children: [
+                const SizedBox(height: 10),
+
+                const Text(
+                  "Are you sure you want to SignOut?",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 18,
+
+                  ),
+                ),
+                const SizedBox(height: 20),
+                Divider(
+                  color: Colors.grey[300],
+                  thickness: 1,
+                ),
+                const SizedBox(height: 10),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.white,
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 25, vertical: 10,
+                        ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+
+
+                        ),
+                      ),
+                      child: const Text(
+                        "Cancel",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                    ),
+                    ElevatedButton(
+                      onPressed: () async {
+                        Navigator.pop(context);
+                        signOut();
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: orangeColor,
+
+
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 25, vertical: 10,
+                        ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+
+
+                        ),
+                      ),
+                      child: const Text(
+                        "SignOut",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          ),
+      );
   }
-}
 
 
